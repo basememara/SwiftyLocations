@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dnN-GX-7QF">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Location Controller-->
+        <scene sceneID="U5d-bm-8Vg">
+            <objects>
+                <viewController id="dnN-GX-7QF" customClass="LocationController" customModule="SwiftyLocations" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mR1-zj-1kT"/>
+                        <viewControllerLayoutGuide type="bottom" id="vOa-EO-DyH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ydk-C4-OU5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Eea-NY-auJ">
+                                <rect key="frame" x="16" y="35" width="343" height="607"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BOs-qc-t4J">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                        <segments>
+                                            <segment title="When In Use"/>
+                                            <segment title="Always"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04U-8J-lYd">
+                                        <rect key="frame" x="0.0" y="62.5" width="343" height="43"/>
+                                        <state key="normal" title="Request Authorization &amp; Update"/>
+                                        <connections>
+                                            <action selector="requestAuthorizationAndUpdateTapped:" destination="dnN-GX-7QF" eventType="touchUpInside" id="sIY-AG-LIK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WjD-CP-rz7">
+                                        <rect key="frame" x="0.0" y="125.5" width="343" height="42.5"/>
+                                        <state key="normal" title="Request Authorization"/>
+                                        <connections>
+                                            <action selector="requestAuthorizationTapped:" destination="dnN-GX-7QF" eventType="touchUpInside" id="N7l-Zl-lyz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wq7-Of-gNs">
+                                        <rect key="frame" x="0.0" y="188" width="343" height="43"/>
+                                        <state key="normal" title="Request Location"/>
+                                        <connections>
+                                            <action selector="requestLocationTapped:" destination="dnN-GX-7QF" eventType="touchUpInside" id="AnI-Fy-Zff"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q19-tz-z9y">
+                                        <rect key="frame" x="0.0" y="251" width="343" height="42.5"/>
+                                        <state key="normal" title="Subscribe Authorization"/>
+                                        <connections>
+                                            <action selector="subscribeAuthorizationTapped:" destination="dnN-GX-7QF" eventType="touchUpInside" id="74Q-ND-ZIf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSs-EO-cmm">
+                                        <rect key="frame" x="0.0" y="313.5" width="343" height="42.5"/>
+                                        <state key="normal" title="Subscribe Location"/>
+                                        <connections>
+                                            <action selector="subscribeLocationTapped:" destination="dnN-GX-7QF" eventType="touchUpInside" id="hjF-gT-sIk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFi-PW-0Cq">
+                                        <rect key="frame" x="0.0" y="376" width="343" height="43"/>
+                                        <state key="normal" title="Unsubscribe All"/>
+                                        <connections>
+                                            <action selector="unsubscribeMonitorTapped:" destination="dnN-GX-7QF" eventType="touchUpInside" id="Fw4-zH-31Q"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpG-6H-NZM">
+                                        <rect key="frame" x="0.0" y="439" width="343" height="42.5"/>
+                                        <state key="normal" title="Start Location"/>
+                                        <connections>
+                                            <action selector="startLocationTapped:" destination="dnN-GX-7QF" eventType="touchUpInside" id="EYf-RD-gnq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0h5-7z-2pW">
+                                        <rect key="frame" x="0.0" y="501.5" width="343" height="43"/>
+                                        <state key="normal" title="Stop Location"/>
+                                        <connections>
+                                            <action selector="stopLocationTapped:" destination="dnN-GX-7QF" eventType="touchUpInside" id="TkN-W2-6FP"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7md-i5-yli">
+                                        <rect key="frame" x="0.0" y="564.5" width="343" height="42.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Eea-NY-auJ" firstAttribute="top" secondItem="mR1-zj-1kT" secondAttribute="bottom" constant="15" id="Kh4-PS-XRQ"/>
+                            <constraint firstItem="Eea-NY-auJ" firstAttribute="leading" secondItem="ydk-C4-OU5" secondAttribute="leadingMargin" id="qFV-tz-mOI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Eea-NY-auJ" secondAttribute="trailing" id="tCb-01-irP"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Eea-NY-auJ" secondAttribute="bottom" constant="25" id="yDz-Ny-0KN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authorizationSegmentedControl" destination="BOs-qc-t4J" id="pzS-42-gDy"/>
+                        <outlet property="resultLabel" destination="7md-i5-yli" id="ONS-9C-HLB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DHe-HI-079" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1001" y="-267"/>
+        </scene>
+    </scenes>
+</document>
