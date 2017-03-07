@@ -15,29 +15,23 @@ public class LocationManager: NSObject, CLLocationManagerDelegate {
         $0.delegate = self
         if let value = self.desiredAccuracy { $0.desiredAccuracy = value }
         if let value = self.distanceFilter { $0.distanceFilter = value }
-        
-        #if os(iOS)
-            if let value = self.allowsBackgroundUpdates {
-                $0.allowsBackgroundLocationUpdates = value
-            }
-        #endif
-        
+        if let value = self.activityType { $0.activityType = value }
         return $0
     }(CLLocationManager())
     
     /// Default location manager options
     fileprivate let desiredAccuracy: CLLocationAccuracy?
     fileprivate let distanceFilter: Double?
-    fileprivate let allowsBackgroundUpdates: Bool?
+    fileprivate let activityType: CLActivityType?
     
     public init(
         desiredAccuracy: CLLocationAccuracy? = nil,
         distanceFilter: Double? = nil,
-        allowsBackgroundUpdates: Bool? = nil) {
+        activityType: CLActivityType? = nil) {
             // Assign values to location manager options
             self.desiredAccuracy = desiredAccuracy
             self.distanceFilter = distanceFilter
-            self.allowsBackgroundUpdates = allowsBackgroundUpdates
+            self.activityType = activityType
         
             super.init()
     }
@@ -118,12 +112,14 @@ public extension LocationManager {
     }
     
     /// Starts the generation of updates that report the user’s current location.
-    func startUpdating() {
+    func startUpdating(enableBackground: Bool = false) {
+        manager.allowsBackgroundLocationUpdates = enableBackground
         manager.startUpdatingLocation()
     }
     
     /// Stops the generation of location updates.
     func stopUpdating() {
+        manager.allowsBackgroundLocationUpdates = false
         manager.stopUpdatingLocation()
     }
 }
