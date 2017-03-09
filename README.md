@@ -12,6 +12,10 @@ class ViewController: UIViewController {
         return $0
     }(LocationManager())
     
+    lazy var locationsObserver: LocationManager.LocationHandler = { [weak self] in
+        print("subscribe location from observer property: \($0)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
  
@@ -26,6 +30,8 @@ class ViewController: UIViewController {
         locationManager.didUpdateLocations += {
             print("subscribe location from viewDidLoad: \($0)")
         }
+        
+        locationManager.didUpdateLocations += locationsObserver
     }
 }
 ```

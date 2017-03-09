@@ -26,6 +26,8 @@
 		8B6C998F1E6DFF6C00D523CC /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		8B6C99901E6DFF6C00D523CC /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = SwiftyLocations/LocationManager.swift; sourceTree = "<group>"; };
 		8B6C99911E6DFF6C00D523CC /* SynchronizedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SynchronizedArray.swift; path = SwiftyLocations/SynchronizedArray.swift; sourceTree = "<group>"; };
+		8BDB64441E71AE3D0025B269 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8BDB64451E71AE3D0025B269 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 		8B6C99711E6DFF2800D523CC = {
 			isa = PBXGroup;
 			children = (
+				8BDB64431E71AE2F0025B269 /* Meta */,
 				8B6C99951E6DFF7000D523CC /* Sources */,
 				8B6C997C1E6DFF2800D523CC /* SwiftyLocations */,
 				8B6C997B1E6DFF2800D523CC /* Products */,
@@ -76,6 +79,15 @@
 				8B6C99901E6DFF6C00D523CC /* LocationManager.swift */,
 			);
 			name = Sources;
+			sourceTree = "<group>";
+		};
+		8BDB64431E71AE2F0025B269 /* Meta */ = {
+			isa = PBXGroup;
+			children = (
+				8BDB64441E71AE3D0025B269 /* README.md */,
+				8BDB64451E71AE3D0025B269 /* LICENSE */,
+			);
+			name = Meta;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

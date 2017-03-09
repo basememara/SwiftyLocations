@@ -23,12 +23,20 @@ class LocationController: UIViewController {
             ? .whenInUse : .always
     }
     
+    lazy var locationsObserver: LocationManager.LocationHandler = { [weak self] in
+        self?.resultLabel.text = "subscribe location from observer property: \($0)"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         locationManager.didUpdateLocations += { [weak self] in
             self?.resultLabel.text = "subscribe location from viewDidLoad: \($0)"
         }
+        
+        //Or...
+        
+        locationManager.didUpdateLocations += locationsObserver
     }
     
     @IBAction func requestAuthorizationAndUpdateTapped(_ sender: Any) {
