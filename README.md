@@ -12,7 +12,7 @@ class ViewController: UIViewController {
         return $0
     }(LocationManager())
     
-    lazy var locationsObserver: LocationManager.LocationHandler = { [weak self] in
+    lazy var locationsObserver: LocationManager.LocationObserver = Observer { /*[weak self] in*/
         print("subscribe location from observer property: \($0)")
     }
     
@@ -27,11 +27,11 @@ class ViewController: UIViewController {
             print("request location: \($0)")
         }
         
-        locationManager.didUpdateLocations += {
-            print("subscribe location from viewDidLoad: \($0)")
-        }
-        
         locationManager.didUpdateLocations += locationsObserver
+    }
+    
+    deinit {
+        locationManager.didUpdateLocations -= locationsObserver
     }
 }
 ```
