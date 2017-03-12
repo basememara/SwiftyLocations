@@ -244,6 +244,10 @@ public extension SynchronizedArray where Element: Equatable {
             self.array.remove(at: index)
         }
     }
+
+    static func -=(left: inout SynchronizedArray, right: Element) {
+        left.remove(right)
+    }
 }
 
 // MARK: - Infix operators
