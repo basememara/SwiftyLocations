@@ -23,17 +23,17 @@ class LocationController: UIViewController {
             ? .whenInUse : .always
     }
     
-    lazy var locationsObserver: LocationManager.LocationObserver = Observer { [weak self] in
+    lazy var locationObserver: LocationManager.LocationObserver = Observer { [weak self] in
         self?.resultLabel.text = "subscribe location from observer property: \($0)"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.didUpdateLocations += locationsObserver
+        locationManager.didUpdateLocations += locationObserver
     }
     
     deinit {
-        locationManager.didUpdateLocations -= locationsObserver
+        locationManager.didUpdateLocations -= locationObserver
     }
     
     @IBAction func requestAuthorizationAndUpdateTapped(_ sender: Any) {
@@ -67,13 +67,13 @@ class LocationController: UIViewController {
     }
     
     @IBAction func subscribeLocationTapped(_ sender: Any) {
-        guard !locationManager.didUpdateLocations.contains(locationsObserver) else { return }
-        locationManager.didUpdateLocations += locationsObserver
+        guard !locationManager.didUpdateLocations.contains(locationObserver) else { return }
+        locationManager.didUpdateLocations += locationObserver
     }
     
     @IBAction func unsubscribeMonitorTapped(_ sender: Any) {
         locationManager.didChangeAuthorization.removeAll()
-        locationManager.didUpdateLocations -= locationsObserver
+        locationManager.didUpdateLocations -= locationObserver
         resultLabel.text = "Unsubscribed all"
     }
     
