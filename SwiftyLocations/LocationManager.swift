@@ -37,11 +37,11 @@ public class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     /// Subscribes to receive new location data when available.
-    public var didUpdateLocations = SynchronizedArray<LocationObservable>()
+    public var didUpdateLocations = SynchronizedArray<LocationObserver>()
     fileprivate var didUpdateLocationsSingle = SynchronizedArray<LocationHandler>()
     
     /// Subscribes to receive new authorization data when available.
-    public var didChangeAuthorization = SynchronizedArray<AuthorizationObservable>()
+    public var didChangeAuthorization = SynchronizedArray<AuthorizationObserver>()
     fileprivate var didChangeAuthorizationSingle = SynchronizedArray<AuthorizationHandler>()
     
     deinit {
@@ -57,11 +57,11 @@ public class LocationManager: NSObject, CLLocationManagerDelegate {
 public extension LocationManager {
 
     /// Location handler queue type.
-    typealias LocationObservable = Observable<LocationHandler>
+    typealias LocationObserver = Observer<LocationHandler>
     typealias LocationHandler = (CLLocation) -> Void
     
     // Authorization handler queue type.
-    typealias AuthorizationObservable = Observable<AuthorizationHandler>
+    typealias AuthorizationObserver = Observer<AuthorizationHandler>
     typealias AuthorizationHandler = (Bool) -> Void
     
     /// Permission types to use location services.

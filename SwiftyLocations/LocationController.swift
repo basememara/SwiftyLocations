@@ -23,7 +23,7 @@ class LocationController: UIViewController {
             ? .whenInUse : .always
     }
     
-    lazy var locationsObserver: LocationManager.LocationObservable = Observable { [weak self] in
+    lazy var locationsObserver: LocationManager.LocationObserver = Observer { [weak self] in
         self?.resultLabel.text = "subscribe location from observer property: \($0)"
     }
     
@@ -61,7 +61,7 @@ class LocationController: UIViewController {
     }
     
     @IBAction func subscribeAuthorizationTapped(_ sender: Any) {
-        locationManager.didChangeAuthorization += Observable { [weak self] in
+        locationManager.didChangeAuthorization += Observer { [weak self] in
             self?.resultLabel.text = "subscribe authorization: \($0)"
         }
     }

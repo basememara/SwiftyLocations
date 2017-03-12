@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Observable<T> {
+public struct Observer<T> {
     let id: UUID
     let handler: T
     
@@ -18,8 +18,8 @@ public struct Observable<T> {
     }
 }
 
-extension Observable: Equatable {
-     public static func ==(lhs: Observable, rhs: Observable) -> Bool {
+extension Observer: Equatable {
+     public static func ==(lhs: Observer, rhs: Observer) -> Bool {
         return lhs.id == rhs.id
     }
 }
